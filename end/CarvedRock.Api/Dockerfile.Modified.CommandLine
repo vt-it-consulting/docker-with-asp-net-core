@@ -1,0 +1,1 @@
+﻿docker run -d --name carvedRock.Api.prod -p 50010:80 CarvedRock.Api/prod  -e "ASPNETCORE_ENVIRONMENT=Development" -e "ConnectionStrings:Db=Server=notsure;Database=DBfromCMD;User Id=sa;Password=somepassword;MultipleActiveResultSets=true;" -e "SimpleProperty=passing-parameters-from-CMD-2"  -e "Inventory:NestedProperty=passing inventory nested from command line"
