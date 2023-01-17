@@ -1,1 +1,24 @@
-﻿docker run -d --name carvedRock.Api.prod -p 50010:80 CarvedRock.Api/prod  -e "ASPNETCORE_ENVIRONMENT=Development" -e "ConnectionStrings:Db=Server=notsure;Database=DBfromCMD;User Id=sa;Password=somepassword;MultipleActiveResultSets=true;" -e "SimpleProperty=passing-parameters-from-CMD-2"  -e "Inventory:NestedProperty=passing inventory nested from command line"
+﻿
+# Build a docker image
+>> docker build -t vtitconsulting/carvedrock.api:latest -f .\CarvedRock.Api\Dockerfile .
+
+# run a container minimum
+ docker run -d --name carvedRock.Api.relativ -p 50010:80 vtitconsulting/carvedrock.api:latest 
+ -e "ASPNETCORE_ENVIRONMENT=Development"
+
+
+# run a container with extended environment variables!
+ docker run -d --name carvedRock.Api.relativ -p 50010:80 vtitconsulting/carvedrock.api:latest 
+ -e "ASPNETCORE_ENVIRONMENT=Development" \
+ -e "ConnectionStrings:Db=Server=notsure" \ 
+ -e "SimpleProperty=passing-parameters-from-CMD-2"  \
+ -e "Inventory:NestedProperty=passing inventory nested from command line" \
+  
+
+# tag an image
+>> docker tag vtitconsulting/carvedrock.api:latest  vtitconsulting/carvedrock.api:1.0 
+
+
+# push a image to docker repository
+
+>> docker push vtitconsulting/carvedrock.api:1.0
