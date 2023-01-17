@@ -1,5 +1,6 @@
 ﻿
-# Build a docker image
+# Build a docker image: from the solution folder run:
+>> docker build -t <image-name/tag> -f <docker file name (relative path)>   .
 >> docker build -t vtitconsulting/carvedrock.api:latest -f .\CarvedRock.Api\Dockerfile .
 
 # run a container minimum
@@ -7,7 +8,7 @@
  -e "ASPNETCORE_ENVIRONMENT=Development"
 
 
-# run a container with extended environment variables!
+# run a container with extended environment variables (see the nested properties "ConnectionStrings:Db=Server" and "Inventory:NestedProperty")!
  docker run -d --name carvedRock.Api.relativ -p 50010:80 vtitconsulting/carvedrock.api:latest 
  -e "ASPNETCORE_ENVIRONMENT=Development" \
  -e "ConnectionStrings:Db=Server=notsure" \ 
