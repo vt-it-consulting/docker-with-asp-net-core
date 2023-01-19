@@ -1,5 +1,6 @@
 using System;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
@@ -40,10 +41,14 @@ namespace CarvedRock.Api
                 Log.CloseAndFlush();
             }
         }
-        
+
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             // http://bit.ly/aspnet-builder-defaults
             Host.CreateDefaultBuilder(args)
+              //.ConfigureAppConfiguration(config =>
+              //{
+              //    config.AddJsonFile("Settings/appsettings.json", optional: true, reloadOnChange: true);
+              //})
                 .UseSerilog()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

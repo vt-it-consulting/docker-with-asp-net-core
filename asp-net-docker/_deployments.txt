@@ -6,7 +6,7 @@ metadata:
   labels:
     app: demo-k8s-config
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: demo-k8s-config
@@ -18,20 +18,11 @@ spec:
       containers:
       - name: demo-k8s-config
         image: vtitconsulting/carvedrock.api
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          value: "Production"
-        - name: DEMO_FAREWELL
-          value: "Such a sweet sorrow"
-        # pass nested property
-        - name: ConnectionStrings__DB
-          value: "Server=notsure;Database=from K8s config Map"
         ports:
         - containerPort: 80
         volumeMounts:
         - name: appsettings-volume
-          mountPath: /app/appsettings.json
-          subPath: appsettings.json
+          mountPath: /app/Settings
       volumes:
       - name: appsettings-volume
         configMap:

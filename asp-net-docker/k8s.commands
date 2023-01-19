@@ -1,0 +1,15 @@
+
+kubectl apply -f k8s/configmap-k8s.yaml
+kubectl apply -f k8s/deployment-k8s.yaml
+kubectl apply -f k8s/service-lb-k8s.yaml
+
+# see https://stackoverflow.com/questions/44110876/kubernetes-service-external-ip-pending
+# see https://minikube.sigs.k8s.io/docs/commands/tunnel/
+# if the service is shown "<pending>" the following line
+# service/demo-k8s-config   LoadBalancer   10.106.61.187   <pending>     80:30090/TCP   3m55s
+# then run 
+# >>  minikube tunnel
+
+
+
+kubectl get all

@@ -9,8 +9,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		configmap-k8s.yaml = configmap-k8s.yaml
 		deployment-k8s.yaml = deployment-k8s.yaml
+		k8s.commands = k8s.commands
 		README.md = README.md
 		service-lb-k8s.yaml = service-lb-k8s.yaml
+		_deployments.txt = _deployments.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarvedRock.InvoiceGenerator", "CarvedRock.InvoiceGenerator\CarvedRock.InvoiceGenerator.csproj", "{BBAB211F-3DF8-4543-A880-888C6DE1AB71}"

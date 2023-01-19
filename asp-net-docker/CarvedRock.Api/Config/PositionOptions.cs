@@ -6,6 +6,7 @@ namespace CarvedRock.Api.Config
     {
         public const string Position = "Position";
 
+        public string Environment { get; set; }
         public string Title { get; set; } = String.Empty;
         public string Name { get; set; } = String.Empty;
 

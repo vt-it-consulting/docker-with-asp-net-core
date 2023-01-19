@@ -4,6 +4,7 @@
     {
         public const string Position = "Logging";
 
+        public string Environment { get; set; }
         public LogLevel LogLevel { get; set; }
     }
 

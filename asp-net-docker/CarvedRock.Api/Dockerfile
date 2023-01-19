@@ -5,11 +5,11 @@ WORKDIR /app
 EXPOSE 80
 
 
-ENV ASPNETCORE_ENVIRONMENT="Development"
-ENV SimpleProperty="hello-from-FINAL-dockerfile"
-ENV Inventory__NestedProperty="Inventory Nested Property -- Docker files"
-ENV ConnectionStrings__Db="Server=notsure;Database=CarvedRockFromDockerFileDB;User Id=sa;Password=somepassword;MultipleActiveResultSets=true;"
-
+#ENV ASPNETCORE_ENVIRONMENT="Development"
+#ENV SimpleProperty="hello-from-FINAL-dockerfile"
+#ENV Inventory__NestedProperty="Inventory Nested Property -- Docker files"
+#ENV ConnectionStrings__DB="Server=notsure;Database=CarvedRockFromDockerFileDB;User Id=sa;Password=somepassword;MultipleActiveResultSets=true;"
+#
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
@@ -22,6 +22,8 @@ RUN dotnet build "CarvedRock.Api.csproj" -c Release -o /app/build
 FROM build AS publish
 RUN dotnet publish "CarvedRock.Api.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
+#RUN apt-get update && apt-get install -y vim
+#
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .

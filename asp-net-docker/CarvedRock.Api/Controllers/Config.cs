@@ -8,5 +8,6 @@ namespace CarvedRock.Api.Controllers
         public string SimpleProperty { get; internal set; }
         public string NestedProperty { get; internal set; }
         public string AllString { get; internal set; }
+        public string Environment { get; internal set; }
     }
 }
