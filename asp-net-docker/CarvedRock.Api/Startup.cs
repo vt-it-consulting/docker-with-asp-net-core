@@ -8,6 +8,7 @@ using CarvedRock.Api.Domain;
 using CarvedRock.Api.Interfaces;
 using CarvedRock.Api.Middleware;
 using Serilog;
+using CarvedRock.Api.Config;
 
 namespace CarvedRock.Api
 {
@@ -24,6 +25,10 @@ namespace CarvedRock.Api
         {
             //var connectionString = "hello"; //ConnectionStrings:Db
             var connectionString = Configuration.GetConnectionString("Db");
+
+            services.Configure<PositionOptions>(Configuration.GetSection(PositionOptions.Position));
+
+            services.Configure<LoggingOptions>(Configuration.GetSection(LoggingOptions.Position));
 
             //var simpleProperty = "hey";     // SimpleProperty
             var simpleProperty = Configuration.GetValue<string>("SimpleProperty");
@@ -50,16 +55,16 @@ namespace CarvedRock.Api
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {            
+        {
             app.UseMiddleware<CustomExceptionHandlingMiddleware>();
             //if (env.IsDevelopment())
-            {                
+            {
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CarvedRock.Api v1"));
             }
 
             app.UseCustomRequestLogging();
-            
+
             app.UseRouting();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>

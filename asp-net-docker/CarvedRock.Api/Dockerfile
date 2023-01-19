@@ -4,6 +4,8 @@ FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
 EXPOSE 80
 
+
+ENV ASPNETCORE_ENVIRONMENT="Development"
 ENV SimpleProperty="hello-from-FINAL-dockerfile"
 ENV Inventory__NestedProperty="Inventory Nested Property -- Docker files"
 ENV ConnectionStrings__Db="Server=notsure;Database=CarvedRockFromDockerFileDB;User Id=sa;Password=somepassword;MultipleActiveResultSets=true;"
