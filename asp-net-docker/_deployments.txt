@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: demo-k8s-config
-  namespace: default
+  namespace: vt-it-consulting-ns
   labels:
     app: demo-k8s-config
 spec:
