@@ -6,7 +6,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 50010
-    targetPort: http-web-svc
+  - port: 80
+    targetPort: 80
+    nodePort: 30007
   selector:
     app: kubernetes-tutorial
