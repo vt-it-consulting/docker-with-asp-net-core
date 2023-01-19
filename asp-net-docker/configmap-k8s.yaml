@@ -1,4 +1,11 @@
 apiVersion: v1
+kind: Namespace
+metadata:
+  name: vt-it-consulting-ns
+  labels:
+    name: vt-it-consulting-ns
+---
+apiVersion: v1
 kind: ConfigMap
 metadata:
   name: appsettings

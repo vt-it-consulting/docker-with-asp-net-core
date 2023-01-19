@@ -19,7 +19,8 @@ spec:
       - name: kubernetes-tutorial
         image: vtitconsulting/carvedrock.api
         ports:
-        - containerPort: 8080
+        - containerPort: 80
+          name: http-web-svc
         volumeMounts:
         - name: appsettings-volume
           mountPath: /app/Settings
